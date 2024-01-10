@@ -1,14 +1,12 @@
 package com.example.ujianandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,15 +40,17 @@ public class MainActivity extends AppCompatActivity {
 
                     String nama_lengkap = isian_nama_depan.concat(" ").concat(isian_nama_belakang);
                     daftar_nama.clear();
-                    for (int i = 0; i < umur; i++)
-                    daftar_nama.add(nama_lengkap + " - " + kategori_umur);
+
+                    // Menambahkan informasi urutan, nama, umur, dan status
+                    for (int i = 1; i <= umur; i++) {
+                        daftar_nama.add(i + ". " + nama_lengkap + " - Status: " + kategori_umur);
+                    }
+
                     edNamaDepan.setText("");
                     edNamaBelakang.setText("");
                     edUmur.setText("");
                     intent_list.putStringArrayListExtra("daftar_nama", daftar_nama);
                     startActivity(intent_list);
-
-
                 }
             }
         });
